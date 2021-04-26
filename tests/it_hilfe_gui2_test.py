@@ -72,7 +72,7 @@ def test_p_register_validate_open(main_window, qtbot, create_valid_json, mocker)
 
     main_window.in_username.clear()
     main_window.in_devicename.clear()
-    main_window.file_path = "./data/jsonTest.json"
+    main_window.file_path = "../it_hilfe/data/jsonTest.json"
 
     # comboboxes not filled
     main_window.in_username.setText("maurice")
@@ -163,7 +163,7 @@ def test_reopen_last_file(main_window, mocker, qtbot):
 
 def test_delete(main_window, mocker, create_valid_json):
 
-    main_window.file_path = "data/jsonTest.json"
+    main_window.file_path = "../it_hilfe/data/jsonTest.json"
     main_window.load()
 
     assert main_window.model.rowCount() == 1
@@ -180,7 +180,7 @@ def test_delete(main_window, mocker, create_valid_json):
 
 def test_change_theme(main_window):
 
-    with open("./data/light_theme.css") as file:
+    with open("../it_hilfe/data/light_theme.css") as file:
         light_stylesheed = " ".join(file.readlines())
         assert main_window.styleSheet() == light_stylesheed
         assert main_window.p_preferences.styleSheet() == light_stylesheed
@@ -188,14 +188,14 @@ def test_change_theme(main_window):
     assert main_window.in_combo_themes.currentText() == "light_theme"
     main_window.change_theme("dark_theme")
 
-    with open("./data/dark_theme.css") as file:
+    with open("../it_hilfe/data/dark_theme.css") as file:
         light_stylesheed = " ".join(file.readlines())
         assert main_window.styleSheet() == light_stylesheed
         assert main_window.p_preferences.styleSheet() == light_stylesheed
 
     main_window.change_theme("light_theme")
 
-    with open("./data/light_theme.css") as file:
+    with open("../it_hilfe/data/light_theme.css") as file:
         light_stylesheed = " ".join(file.readlines())
         assert main_window.styleSheet() == light_stylesheed
         assert main_window.p_preferences.styleSheet() == light_stylesheed
